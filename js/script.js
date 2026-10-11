@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
         typeNextCharacter();
     }
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector("#primary-navigation");
+    const menuToggle = document.querySelector("#menu-toggle");
+    const navigation = document.querySelector("#site-navigation");
 
     if (menuToggle && navigation) {
         const closeMenu = () => {
@@ -42,9 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuToggle.addEventListener("click", () => {
             const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-            menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-            menuToggle.setAttribute("aria-label", isExpanded ? "Open navigation menu" : "Close navigation menu");
-            navigation.classList.toggle("is-open", !isExpanded);
+            const nextState = !isExpanded;
+
+            menuToggle.setAttribute("aria-expanded", String(nextState));
+            menuToggle.setAttribute("aria-label", nextState ? "Close navigation menu" : "Open navigation menu");
+            navigation.classList.toggle("is-open", nextState);
         });
 
         navigation.querySelectorAll("a").forEach((link) => {
@@ -64,11 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     const setTheme = (theme) => {
-        document.documentElement.dataset.theme = theme;
+        const resolvedTheme = theme === "dark" || theme === "light" ? theme : prefersDark ? "dark" : "light";
+        document.documentElement.dataset.theme = resolvedTheme;
+
         if (themeToggle) {
-            const isDark = theme === "dark";
+            const isDark = resolvedTheme === "dark";
             themeToggle.setAttribute("aria-pressed", String(isDark));
-            themeToggle.textContent = isDark ? "☀️ Light mode" : "🌙 Dark mode";
+            themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+            themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
         }
     };
 
@@ -82,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const navigationLinks = Array.from(document.querySelectorAll("#primary-navigation a[href^='#']"));
+    const navigationLinks = Array.from(document.querySelectorAll(".nav-link[href^='#']"));
     const sections = navigationLinks
         .map((link) => document.querySelector(link.getAttribute("href")))
         .filter(Boolean);
@@ -92,12 +97,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const isActive = link.getAttribute("href") === `#${sectionId}`;
             link.classList.toggle("active", isActive);
             if (isActive) {
-                link.setAttribute("aria-current", "location");
+                link.setAttribute("aria-current", "page");
             } else {
                 link.removeAttribute("aria-current");
             }
         });
     };
+
+    if (window.location.hash) {
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            setActiveLink(hash);
+        }
+    }
 
     if ("IntersectionObserver" in window && sections.length > 0) {
         const sectionObserver = new IntersectionObserver((entries) => {
@@ -109,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setActiveLink(visibleSections[0].target.id);
             }
         }, {
-            rootMargin: "-25% 0px -55% 0px",
+            rootMargin: "-20% 0px -55% 0px",
             threshold: [0, 0.25, 0.5, 0.75, 1]
         });
 
