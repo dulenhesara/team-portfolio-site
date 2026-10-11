@@ -1,22 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Team Portfolio | Full-Stack Lab 03</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/header-footer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Portfolio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
 </head>
+
 <body>
 
-  <!-- MEMBER 4: HEADER goes here -->
+    <!-- Header - Member 4 -->
+    <header>
+        <div class="header-container">
+            <a class="site-logo" href="#home">Team Portfolio</a>
 
-  <main>
-    <!-- MEMBER 1: PAGE CONTENT (sections) goes here -->
-  </main>
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-controls="site-navigation"
+                aria-expanded="false"
+            >
+                <span class="menu-toggle-icon" aria-hidden="true"></span>
+                <span>Menu</span>
+            </button>
 
-  <!-- MEMBER 4: FOOTER goes here -->
+            <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
+                <ul class="navigation-links">
+                    <li><a class="nav-link" href="#home" aria-current="page">Home</a></li>
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#team">Team</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-  <script src="js/script.js"></script>
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+            >
+                Dark mode
+            </button>
+        </div>
+    </header>
+
+    <!-- Main content - Member 1 -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Our Team Portfolio</h1>
+
+                <p>
+                    We are a team of passionate students who enjoy
+                    creating modern and innovative web applications.
+                </p>
+
+                <h2>
+                    We are
+                    <span id="typing-text"></span>
+                </h2>
+
+                <a href="#team" class="btn">Meet Our Team</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Our Team</h2>
+
+                <p>
+                    Our team is a group of four students working together
+                    to develop creative and user-friendly web solutions.
+                    We combine our knowledge of HTML, CSS, JavaScript,
+                    and web development to build complete projects.
+                </p>
+
+                <p>
+                    This portfolio website demonstrates our teamwork,
+                    Git and GitHub workflow, and our ability to collaborate
+                    on a shared software project.
+                </p>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team">
+            <div class="container">
+                <h2>Meet Our Team</h2>
+
+                <div class="team-container">
+
+                    <div class="team-card">
+                        <div class="team-image">👨‍💻</div>
+                        <h3>Member 1</h3>
+                        <p class="role">HTML Developer</p>
+                        <p>
+                            Responsible for creating the main HTML
+                            structure and content of the website.
+                        </p>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-image">🎨</div>
+                        <h3>Member 2</h3>
+                        <p class="role">CSS Developer</p>
+                        <p>
+                            Responsible for styling, layouts, colors,
+                            cards, forms, and responsive design.
+                        </p>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-image">💻</div>
+                        <h3>Member 3</h3>
+                        <p class="role">JavaScript Developer</p>
+                        <p>
+                            Responsible for interactive features,
+                            validation, dark mode, and typing effects.
+                        </p>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-image">🧑‍💼</div>
+                        <h3>Member 4</h3>
+                        <p class="role">Header & Footer Developer</p>
+                        <p>
+                            Responsible for the website navigation,
+                            header, footer, and related styling.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+
+                <p>
+                    Have a question or want to work with us?
+                    Send us a message using the form below.
+                </p>
+
+                <form id="contact-form">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Enter your message"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Send Message
+                    </button>
+
+                    <p id="form-message"></p>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer - Member 4 -->
+    <footer>
+        
+    </footer>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>
