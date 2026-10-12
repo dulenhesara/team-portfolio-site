@@ -1,34 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Portfolio</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header-footer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Portfolio | Full-Stack Lab 03</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header-footer.css">
 </head>
-
 <body>
 
+  <!-- Header - Member 4 -->
   <header class="site-header">
-    <div class="brand">Team Portfolio</div>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
+    <div class="container header-container">
+      <a class="site-logo brand" href="#home">Team Portfolio</a>
+
+      <button type="button" class="menu-toggle btn" aria-expanded="false" aria-label="Open navigation menu">
+        Menu
+      </button>
+
+      <nav id="primary-navigation" class="main-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" class="btn" type="button" aria-pressed="false">🌙 Dark mode</button>
+      </nav>
+    </div>
   </header>
 
-    <!-- Footer - Member 4 -->
-    <footer>
-        
-    </footer>
+  <main>
+    <!-- MEMBER 1: PAGE CONTENT (sections) -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h1>We are <span id="typing-text">creative thinkers</span></h1>
+        <p>Welcome to our team portfolio project built for Full-Stack Lab 03.</p>
+        <a href="#team" class="btn">Meet the Team</a>
+      </div>
+    </section>
 
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>We are a dedicated group of developers working together to build clean, accessible, and responsive web applications.</p>
+      </div>
+    </section>
+
+    <section id="team" class="team">
+      <div class="container">
+        <h2>Our Team</h2>
+        <div class="team-container">
+          <div class="team-card">
+            <div class="team-image">💻</div>
+            <h3>Member 1</h3>
+            <p class="role">Page Structure & Content</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">🎨</div>
+            <h3>Member 2</h3>
+            <p class="role">Styles & Layout</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">⚡</div>
+            <h3>Member 3</h3>
+            <p class="role">Interactivity & Scripts</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">🚀</div>
+            <h3>Member 4</h3>
+            <p class="role">Header & Footer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Send us a message and we'll get back to you.</p>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Your message..."></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer - Member 4 -->
   <footer class="site-footer">
-    <p>© 2026 Team Portfolio</p>
+    <div class="container">
+      <p>© 2026 Team Portfolio. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
