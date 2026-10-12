@@ -1,1 +1,42 @@
-/* MEMBER 4: header, navigation and footer styles */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111827;
+  color: #f9fafb;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+}
+
+.site-footer {
+  background: #f3f4f6;
+  color: #374151;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
